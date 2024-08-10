@@ -11,7 +11,7 @@
 }
 .testquestion{
     width: 1400px;
-    height: 500px;
+    height: fit-content;
     margin-top: 30px;
     margin-left: 50px;
     border-radius: 30px;
@@ -29,6 +29,13 @@
 .question li {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 25px;
+}
+.question li div{
+    margin-bottom: 5px;
+}
+.question li div input{
+    margin-right: 6px;
 }
 .timeline{
     position: relative;
@@ -37,7 +44,6 @@
     margin-left: 50px;
     margin-top: 30px;
     border-radius: 30px;
-    justify-items: center;
 }
 .timeline p{
     position: relative;
@@ -52,10 +58,11 @@
     background-color: red;
     font-size: 30px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    left: 100px;
+    margin: auto;
     border-radius: 5px;
-    box-shadow: 0 3px 0 black;
+    box-shadow: 0 5px 0 black;
     transition: 0.1s ease;
+    padding: 6px;
 }
 .timeline button:active{
     transform: translateY(3px);
@@ -68,3 +75,8 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.timeline div{
+    position: relative;
+    text-align: center;
+    justify-items: center;
+}

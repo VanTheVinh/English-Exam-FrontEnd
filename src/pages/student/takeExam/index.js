@@ -16,6 +16,12 @@ function TakeExam(){
     useEffect(()=>{
         getAPI()
     },[])
+
+    const checktrueflase =(value,rightasw,id)=>{
+        if(value === rightasw){
+            
+        }
+    }
     return (
         <div className={styles.task_exam}>
             <div className={styles.header}>TOEIC EXAM</div>
@@ -24,7 +30,25 @@ function TakeExam(){
                         <ul className={styles.question}>
                             {QE.map((e)=>{
                                 return (
-                                    <li>{e.exid}</li>
+                                    <li>
+                                        <div>{e.question}</div>
+                                        <div>
+                                            <input type='radio' name={e.id} value={e.asw1} onChange={(e)=>{checktrueflase(e.target.value,e.rightasw,e.point)}}></input>
+                                            <label>{e.asw1}</label>
+                                         </div>
+                                        <div>
+                                            <input type='radio' name={e.id} value={e.asw2} onChange={(e)=>{console.log(e.target.value)}} ></input>
+                                            <label>{e.asw2}</label>
+                                        </div>
+                                        <div>
+                                            <input type='radio' name={e.id} value={e.asw3} onChange={(e)=>{console.log(e.target.value)}} ></input>
+                                            <label>{e.asw3}</label>
+                                        </div>
+                                        <div>
+                                            <input type='radio' name={e.id} value={e.asw4} onChange={(e)=>{console.log(e.target.value)}} ></input>
+                                            <label>{e.asw4}</label>
+                                        </div>
+                                    </li>
                                 )
                             })}
                         </ul>
@@ -32,7 +56,7 @@ function TakeExam(){
                     <div className={styles.timeline}>
                         <p>Thời Gian Còn</p>
                         <Time></Time>
-                        <button>SUBMIT</button>
+                        <div><button>SUBMIT</button></div>
                     </div>
                 </div>
         </div>
