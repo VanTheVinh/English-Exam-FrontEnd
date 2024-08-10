@@ -1,3 +1,69 @@
 .task_exam {
     color: #000;
 }
+.header{
+    text-align: center;
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif;
+    margin-top: 20px;
+    text-shadow: 0 0 3px black;
+    color: gold;
+}
+.testquestion{
+    width: 1400px;
+    height: 500px;
+    margin-top: 30px;
+    margin-left: 50px;
+    border-radius: 30px;
+    box-shadow: 0 1px 5px gray;
+}
+.main{
+    display: flex;
+}
+.question{
+    position: relative;
+    margin-left: 60px;
+    top:20px;
+    list-style: none;
+}
+.question li {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.timeline{
+    position: relative;
+    box-shadow: 0 1px 5px gray;
+    width: 400px;
+    margin-left: 50px;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+.timeline p{
+    position: relative;
+    top:20px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.timeline button{
+    position: relative;
+    top: 100px;
+    background-color: red;
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    left: 100px;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 black;
+    transition: 0.1s ease;
+}
+.timeline button:active{
+    transform: translateY(3px);
+    box-shadow: none;
+}
+.timeline span{
+    position: relative;
+    left: 170px;
+    top:30px;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
