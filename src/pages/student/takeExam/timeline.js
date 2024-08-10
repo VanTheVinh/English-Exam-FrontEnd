@@ -2,24 +2,30 @@ import React, { useState,useEffect, useRef } from 'react';
 import styles from './TaskExam.module.scss';
 import axios from 'axios';
 function Time (){
-    const [sophut,setSP] = useState(24)
-    const [sogiay,setSG] = useState(59)
-   
-    useEffect(()=>{
-        const timeline = setInterval(()=>{
-            if(sogiay<0){
-                clearInterval(timeline)
-                setSP((sp)=>sp-1)
-                setSG((sg)=>sg = 59)
-            }
-            else{
-                setSG((sg)=> sg - 1)
-            }
-        },500) 
+    const[sogiay,setSG]=useState(0)
+    const[sophut,setSP]=useState(0)
+    let countdownTime = 25 * 60;
+
+    function updateCountdown() {
+        // Tính số phút và giây
+        const minutes = Math.floor(countdownTime / 60);
+        setSP((e)=>e = minutes)
+        const seconds = countdownTime % 60;
+        setSG((t)=>t = seconds)
+        countdownTime--;
+
+        if (countdownTime < 0) {
+            clearInterval(countdownInterval);
+        }
+    }
+const countdownInterval = ()=>{setInterval(updateCountdown, 1000);}
+   useEffect(()=>{
+        countdownInterval()
     },[])
+
     return(
         <div>
-            <span className={styles.sophut}>{sophut}</span><span className={styles.sogiay}>:{sogiay}</span>
+        <p className={styles.timeclock}>{sophut}:{sogiay<10?'0'+sogiay:sogiay}</p>
         </div>
     )
 }
