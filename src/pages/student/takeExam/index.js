@@ -4,6 +4,9 @@ import axios from 'axios';
 import Time from './timeline'
 function TakeExam(){
     const [QE,setQE] = useState([])
+    const [popup,setPopup]= useState(0)
+    const diem = useRef(0)
+    const [submitchoice,setSU] = useState(0)
     const getAPI= async()=>{
         await axios
         .get('https://66b334137fba54a5b7ebe5f9.mockapi.io/sanpham')
@@ -17,14 +20,43 @@ function TakeExam(){
         getAPI()
     },[])
 
-    const checktrueflase =(value,rightasw,id)=>{
-        if(value === rightasw){
-            
-        }
+    const checktrueflase =(id,value,rightasw)=>{
+        QE.map((e)=>{
+            if(e.id == id){
+                if(value == rightasw){
+                    e.point = 1
+                }
+                else{
+                    e.point = 0
+                }
+            }
+        })
     }
+    const Submit = ()=>{
+        setPopup((e)=>e = 1)
+        
+    }   
+    let x = {opacity: 0.1}
     return (
-        <div className={styles.task_exam}>
+        <div>
+            {popup == 1? 
+                <div className={styles.Popup}>
+                    <p>Do you want to submit</p>
+                    <button onClick={()=>{
+                            QE.map((e)=>{
+                            diem.current= diem.current + e.point
+                            })
+                            setSU((e)=>e = 1)
+
+                    }}>Yes</button>
+                    <button onClick={()=>{
+                    setPopup((e)=>e = 0)
+                    }}>No</button>
+                </div>:null
+            }
+        <div className={styles.task_exam} style={popup == 1?x:null}>
             <div className={styles.header}>TOEIC EXAM</div>
+            
                 <div className={styles.main}>
                     <div className={styles.testquestion}>
                         <ul className={styles.question}>
@@ -33,19 +65,19 @@ function TakeExam(){
                                     <li>
                                         <div>{e.question}</div>
                                         <div>
-                                            <input type='radio' name={e.id} value={e.asw1} onChange={(e)=>{checktrueflase(e.target.value,e.rightasw,e.point)}}></input>
+                                            <input type='radio' name={e.id} value={e.asw1} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}}></input>
                                             <label>{e.asw1}</label>
                                          </div>
                                         <div>
-                                            <input type='radio' name={e.id} value={e.asw2} onChange={(e)=>{console.log(e.target.value)}} ></input>
+                                            <input type='radio' name={e.id} value={e.asw2} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}} ></input>
                                             <label>{e.asw2}</label>
                                         </div>
                                         <div>
-                                            <input type='radio' name={e.id} value={e.asw3} onChange={(e)=>{console.log(e.target.value)}} ></input>
+                                            <input type='radio' name={e.id} value={e.asw3} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}} ></input>
                                             <label>{e.asw3}</label>
                                         </div>
                                         <div>
-                                            <input type='radio' name={e.id} value={e.asw4} onChange={(e)=>{console.log(e.target.value)}} ></input>
+                                            <input type='radio' name={e.id} value={e.asw4} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}} ></input>
                                             <label>{e.asw4}</label>
                                         </div>
                                     </li>
@@ -55,10 +87,12 @@ function TakeExam(){
                     </div>
                     <div className={styles.timeline}>
                         <p>Thời Gian Còn</p>
-                        <Time></Time>
-                        <div><button>SUBMIT</button></div>
+                            <Time Submitchoice ={submitchoice==1?1:0}></Time>
+                        <div><button onClick={()=>{Submit()}}>SUBMIT</button></div>
                     </div>
                 </div>
+                
+        </div>
         </div>
     );
 };
