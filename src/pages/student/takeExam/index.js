@@ -47,6 +47,7 @@ function TakeExam(){
                             diem.current= diem.current + e.point
                             })
                             setSU((e)=>e = 1)
+                            setPopup((e)=>e = 0)
 
                     }}>Yes</button>
                     <button onClick={()=>{
@@ -84,11 +85,13 @@ function TakeExam(){
                                 )
                             })}
                         </ul>
-                    </div>
+                    </div>  
                     <div className={styles.timeline}>
-                        <p>Thời Gian Còn</p>
-                            <Time Submitchoice ={submitchoice==1?1:0}></Time>
-                        <div><button onClick={()=>{Submit()}}>SUBMIT</button></div>
+                        {submitchoice == 1?<p>Kết Quả</p>:<p>Thời Gian Còn</p>}
+                            {submitchoice == 1 ?<div className={styles.Diem}>{diem.current}/25</div>:<Time Submitchoice ={submitchoice==1?1:0}></Time>}
+                            
+                        <div>
+                            <button onClick={()=>{Submit()}}>SUBMIT</button></div>
                     </div>
                 </div>
                 
@@ -98,3 +101,4 @@ function TakeExam(){
 };
 
 export default TakeExam;
+;
