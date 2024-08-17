@@ -1,3 +1,54 @@
 .dashboard {
-    color:darkblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f9; // Màu nền sáng
+
+    .classesList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 800px; // Giới hạn chiều rộng tối đa
+        margin-top: 20px;
+    }
+
+    .classCard {
+        background: #fff; // Màu nền trắng cho thẻ lớp học
+        border-radius: 8px; // Bo góc cho thẻ
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Đổ bóng cho thẻ
+        padding: 20px;
+        margin-bottom: 15px;
+        width: 100%; // Chiều rộng thẻ lớp học
+        max-width: 700px; // Giới hạn chiều rộng thẻ lớp học
+        text-align: center; // Canh giữa nội dung
+        transition: box-shadow 0.3s ease-in-out; // Hiệu ứng chuyển tiếp khi hover
+
+        &:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Tăng đổ bóng khi hover
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #333; // Màu tiêu đề lớp học
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666; // Màu mô tả lớp học
+        }
+    }
+
+    .loading,
+    .error {
+        font-size: 1.2rem;
+        color: #888;
+        margin-top: 20px;
+    }
+
+    .error {
+        color: #e74c3c; // Màu đỏ cho lỗi
+    }
 }

@@ -4,7 +4,7 @@ import styles from './Home.module.scss';
 const Home = () => {
     return (
         <div className={styles.home}>
-            <h1>Home main</h1>
+            <h2>Home main</h2>
             <p>Welcome to Mutiple Exam !</p>
         </div>
     );
