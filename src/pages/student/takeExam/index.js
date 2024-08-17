@@ -1,104 +1,101 @@
-import React, { useState,useEffect, useRef } from 'react';
-import styles from './TaskExam.module.scss';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import Time from './timeline'
-function TakeExam(){
-    const [QE,setQE] = useState([])
-    const [popup,setPopup]= useState(0)
-    const diem = useRef(0)
-    const [submitchoice,setSU] = useState(0)
-    const getAPI= async()=>{
-        await axios
-        .get('https://66b334137fba54a5b7ebe5f9.mockapi.io/sanpham')
-        .then((res)=>{
-            res.data.map((e)=>{
-                setQE((t)=>[...t,e])
-            })
-        })
-    }
-    useEffect(()=>{
-        getAPI()
-    },[])
+import { AppContext } from '~/context/AppContext';
+import { useParams } from 'react-router-dom';
 
-    const checktrueflase =(id,value,rightasw)=>{
-        QE.map((e)=>{
-            if(e.id == id){
-                if(value == rightasw){
-                    e.point = 1
-                }
-                else{
-                    e.point = 0
-                }
-            }
-        })
-    }
-    const Submit = ()=>{
-        setPopup((e)=>e = 1)
-        
-    }   
-    let x = {opacity: 0.1}
-    return (
-        <div>
-            {popup == 1? 
-                <div className={styles.Popup}>
-                    <p>Do you want to submit</p>
-                    <button onClick={()=>{
-                            QE.map((e)=>{
-                            diem.current= diem.current + e.point
-                            })
-                            setSU((e)=>e = 1)
-                            setPopup((e)=>e = 0)
+const TakeExamPage = () => {
+  const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState({});
+  const [error, setError] = useState(null);
+  const { studentID, examID } = useContext(AppContext); // Lấy examID từ Context
+  const { examId } = useParams(); // Lấy examId từ URL parameters
+  const [localExamID, setLocalExamID] = useState(examId); // Đặt examID từ URL vào trạng thái local
 
-                    }}>Yes</button>
-                    <button onClick={()=>{
-                    setPopup((e)=>e = 0)
-                    }}>No</button>
-                </div>:null
-            }
-        <div className={styles.task_exam} style={popup == 1?x:null}>
-            <div className={styles.header}>TOEIC EXAM</div>
-            
-                <div className={styles.main}>
-                    <div className={styles.testquestion}>
-                        <ul className={styles.question}>
-                            {QE.map((e)=>{
-                                return (
-                                    <li>
-                                        <div>{e.question}</div>
-                                        <div>
-                                            <input type='radio' name={e.id} value={e.asw1} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}}></input>
-                                            <label>{e.asw1}</label>
-                                         </div>
-                                        <div>
-                                            <input type='radio' name={e.id} value={e.asw2} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}} ></input>
-                                            <label>{e.asw2}</label>
-                                        </div>
-                                        <div>
-                                            <input type='radio' name={e.id} value={e.asw3} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}} ></input>
-                                            <label>{e.asw3}</label>
-                                        </div>
-                                        <div>
-                                            <input type='radio' name={e.id} value={e.asw4} onChange={(t)=>{checktrueflase(e.id,t.target.value,e.rightasw)}} ></input>
-                                            <label>{e.asw4}</label>
-                                        </div>
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    </div>  
-                    <div className={styles.timeline}>
-                        {submitchoice == 1?<p>Kết Quả</p>:<p>Thời Gian Còn</p>}
-                            {submitchoice == 1 ?<div className={styles.Diem}>{diem.current}/25</div>:<Time Submitchoice ={submitchoice==1?1:0}></Time>}
-                            
-                        <div>
-                            <button onClick={()=>{Submit()}}>SUBMIT</button></div>
-                    </div>
+  console.log('ExamID: ', examID);
+  console.log('StudentID: ', studentID);
+
+  useEffect(() => {
+    if (examID) {
+      setLocalExamID(examID);
+    }
+  }, [examID]); 
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        console.log('Fetching questions for exam ID:', localExamID); // Kiểm tra examID
+        const response = await axios.post('http://localhost:8000/question', {
+          examId: localExamID,
+        });
+        console.log('API Response:', response.data); // Kiểm tra dữ liệu trả về từ API
+        setQuestions(response.data.questions);
+      } catch (err) {
+        setError(`Error fetching questions: ${err.response ? err.response.data.message : err.message}`);
+        console.error('Fetch error:', err.response ? err.response.data : err.message);
+      }
+    };
+  
+    fetchQuestions();
+  }, [localExamID]);
+  
+
+  const handleAnswerChange = (questionId, answer) => {
+    setAnswers({
+      ...answers,
+      [questionId]: answer,
+    });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      // Handle submit logic here, e.g., post answers to the server
+      console.log(answers);
+    } catch (err) {
+      setError('Error submitting answers');
+      console.error(err);
+    }
+  };
+
+  return (
+    <div className="take-exam-page">
+      <h1>Take Exam</h1>
+      {error && <p className="error">{error}</p>}
+      {questions.length === 0 ? (
+        <p>Loading questions...</p>
+      ) : (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
+          {questions.map((question) => (
+            <div key={question._id} className="question">
+              <p>{question.questionText}</p>
+              {question.questionAnswers.map((answer) => (
+                <div key={answer._id}>
+                  <input
+                    type="radio"
+                    id={`q${question._id}a${answer._id}`}
+                    name={question._id}
+                    value={answer.answerText}
+                    onChange={() =>
+                      handleAnswerChange(question._id, answer.answerText)
+                    }
+                    checked={answers[question._id] === answer.answerText}
+                  />
+                  <label htmlFor={`q${question._id}a${answer._id}`}>
+                    {answer.answerText}
+                  </label>
                 </div>
-                
-        </div>
-        </div>
-    );
+              ))}
+            </div>
+          ))}
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </div>
+  );
 };
 
-export default TakeExam;
-;
+export default TakeExamPage;
