@@ -5,7 +5,7 @@ import Login from '../pages/login/Login.js';
 import ForgotPassword from '~/pages/forgotPassword';
 import Profile from '~/pages/profile';
 import StudentDashboard from '~/pages/student/dashboard'
-import TaskExam from '~/pages/student/takeExam'
+import TakeExam from '~/pages/student/takeExam'
 import TeacherDashboard from '~/pages/teacher/dashboard'
 import ManageClasses from '~/pages/teacher/manageClasses'
 import ManageExams from '~/pages/teacher/manageExams'
@@ -22,7 +22,7 @@ const AppRouter = () => {
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/student/dashboard" element={<StudentDashboard />} />
-                <Route path="/student/take-exam" element={<TaskExam />} />
+                <Route path="/student/take-exam" element={<TakeExam />} />
                 <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
                 <Route path="/teacher/manage-classes" element={<ManageClasses />} />
                 <Route path="/teacher/manage-exams" element={<ManageExams />} />
