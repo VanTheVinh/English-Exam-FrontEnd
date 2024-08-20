@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styles from './Header.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser , faHistory, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,7 +21,7 @@ const Header = () => {
   };
 
   const handleLogoutClick = () => {
-    const confirmed = window.confirm('Bạn có chắc chắn muốn đăng xuất không?');
+    const confirmed = window.confirm('Do you want to Logout?');
     if (confirmed) {
       // Clear tokens from local storage
       localStorage.removeItem('accessToken');
@@ -37,10 +39,37 @@ const Header = () => {
   }, []);
 
   return (
+    // <header className={styles.header}>
+    //   <div className={styles.logo}>
+    //       <h3>ENGLISH EXAM </h3>
+    //   </div>
+    //   <div
+    //     className={styles.userMenu}
+    //     onMouseEnter={() => setMenuOpen(true)}
+    //     onMouseLeave={() => setMenuOpen(false)}
+    //     ref={userMenuRef}
+    //   >
+    //     <button className={styles.userButton}>
+    //       <FontAwesomeIcon icon={faUser} className={styles.userIcon} />
+    //     </button>
+    //     {menuOpen && (
+    //       <ul className={styles.menu}>
+    //         <li onClick={handleProfileClick} className={styles.menuItem}>
+    //           Profile
+    //         </li>
+    //         <li>
+    //         <Link className={styles.menuItem} to="/student/exams-page/exam-results">History</Link>
+    //         </li>
+    //         <li onClick={handleLogoutClick} className={styles.menuItem}>
+    //           Logout
+    //         </li>
+    //       </ul>
+    //     )}
+    //   </div>
+    // </header>
     <header className={styles.header}>
       <div className={styles.logo}>
-        {/* Replace with your actual logo */}
-        <img src="/path-to-logo/logo.png" alt="Logo" />
+        <h3>ENGLISH EXAM </h3>
       </div>
       <div
         className={styles.userMenu}
@@ -49,15 +78,23 @@ const Header = () => {
         ref={userMenuRef}
       >
         <button className={styles.userButton}>
-          <img src="/path-to-icon/user-icon.png" alt="User" />
+          <FontAwesomeIcon icon={faUser} className={styles.userIcon} />
         </button>
         {menuOpen && (
           <ul className={styles.menu}>
             <li onClick={handleProfileClick} className={styles.menuItem}>
-              Profile
+              <FontAwesomeIcon icon={faUser} className={styles.menuIcon} />
+              <span>Profile</span>
+            </li>
+            <li>
+              <Link className={styles.menuItem} to="/student/exams-page/exam-results">
+                <FontAwesomeIcon icon={faHistory} className={styles.menuIcon} />
+                <span>History</span>
+              </Link>
             </li>
             <li onClick={handleLogoutClick} className={styles.menuItem}>
-              Logout
+              <FontAwesomeIcon icon={faSignOutAlt} className={styles.menuIcon} />
+              <span>Logout</span>
             </li>
           </ul>
         )}

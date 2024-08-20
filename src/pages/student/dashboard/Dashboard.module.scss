@@ -1,54 +1,52 @@
 .dashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 20px;
-    background-color: #f4f4f9; // Màu nền sáng
-
-    .classesList {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 800px; // Giới hạn chiều rộng tối đa
-        margin-top: 20px;
+    max-width: 1200px; // Adjust width as needed
+    margin: 0 auto; // Center the dashboard horizontally
+    
+    // border: 1px solid #ddd; // Light border around the dashboard
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #333; // Dark color for the heading
+    margin-bottom: 40px;
+    // margin-top: 20px;
+  }
+  
+  .classesList {
+    display: flex;
+    flex-wrap: wrap; // Allow items to wrap to the next line
+    justify-content: center; // Center items horizontally
+    gap: 20px; // Space between class cards
+  }
+  
+  .classCard {
+    text-align: center;
+    background-color: #ffffff; // White background for each class card
+    border: 1px solid #ddd; // Light border for each card
+    border-radius: 8px; // Rounded corners
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+    padding: 15px;
+    width: 40%; // Make each card take up 40% of the container's width
+    max-width: 300px; // Optional: limit the maximum width of the card
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; // Smooth transition for hover effects
+  
+    &:hover {
+      transform: translateY(-5px); // Lift effect on hover
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // More pronounced shadow on hover
     }
-
-    .classCard {
-        background: #fff; // Màu nền trắng cho thẻ lớp học
-        border-radius: 8px; // Bo góc cho thẻ
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Đổ bóng cho thẻ
-        padding: 20px;
-        margin-bottom: 15px;
-        width: 100%; // Chiều rộng thẻ lớp học
-        max-width: 700px; // Giới hạn chiều rộng thẻ lớp học
-        text-align: center; // Canh giữa nội dung
-        transition: box-shadow 0.3s ease-in-out; // Hiệu ứng chuyển tiếp khi hover
-
-        &:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Tăng đổ bóng khi hover
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: #333; // Màu tiêu đề lớp học
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            color: #666; // Màu mô tả lớp học
-        }
+  
+    h2 {
+      font-size: 1.5rem;
+      color: #333; // Dark color for class code
+      margin: 0 0 10px;
     }
-
-    .loading,
-    .error {
-        font-size: 1.2rem;
-        color: #888;
-        margin-top: 20px;
+  
+    p {
+      font-size: 1rem;
+      color: #666; // Lighter color for class name
+      margin: 0;
     }
-
-    .error {
-        color: #e74c3c; // Màu đỏ cho lỗi
-    }
-}
+  }
+  
