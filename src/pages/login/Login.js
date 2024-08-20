@@ -36,7 +36,7 @@ const Login = () => {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
 
-      alert(`Welcome, ${user.fullName}!`);
+      // alert(`Welcome, ${user.fullName}!`);
       setStudentID(studentID); 
 
       if (user.role === 'student') {

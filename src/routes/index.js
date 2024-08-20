@@ -6,7 +6,9 @@ import ForgotPassword from '~/pages/forgotPassword';
 import Profile from '~/pages/profile';
 import StudentDashboard from '~/pages/student/dashboard';
 import StudentExamsPage from '~/pages/student/examsPage';
-import TaskExam from '~/pages/student/takeExam';
+import TakeExam from '~/pages/student/takeExam';
+import ExamResults from '~/pages/student/examResults';
+
 import TeacherDashboard from '~/pages/teacher/dashboard';
 import ManageClasses from '~/pages/teacher/manageClasses';
 import ManageExams from '~/pages/teacher/manageExams';
@@ -23,7 +25,8 @@ const AppRouter = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/student" element={<StudentDashboard />} />
-        <Route path="/student/exams-page/take-exam" element={<TaskExam />} />
+        <Route path="/student/exams-page/take-exam" element={<TakeExam />} />
+        <Route path="/student/exams-page/exam-results" element={<ExamResults />} />
         <Route path="/student/exams-page/:classId" element={<StudentExamsPage />}/>
 
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
