@@ -118,7 +118,7 @@ const Dashboard = () => {
                   }}
                 >
                   Question
-                </li>
+                </li> 
               ) : (
                 <li
                   onClick={() => {

@@ -94,12 +94,17 @@ const ExamResults = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  console.log(1);
+  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch all results
         const resultsResponse = await axios.get('http://localhost:8000/result');
         const resultsData = resultsResponse.data.results;
+        console.log(resultsData);
+        
 
         // Fetch exam details for each result using examId
         const examDetailsPromises = resultsData.map(async (result) => {

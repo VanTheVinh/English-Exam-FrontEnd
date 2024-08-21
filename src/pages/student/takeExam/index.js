@@ -174,22 +174,6 @@ const TakeExamPage = () => {
                     </label>
                   </div>
                 ))}
-
-                {/* {question.questionAnswers.map((answer) => (
-                  <div
-                    key={answer._id}
-                    className={`${styles.answerOption} ${
-                      answers[question._id] === answer.answerText
-                        ? styles.selected
-                        : ''
-                    }`}
-                    onClick={() =>
-                      handleAnswerChange(question._id, answer.answerText)
-                    }
-                  >
-                    {answer.answerText}
-                  </div>
-                ))} */}
               </div>
             ))}
         </div>
