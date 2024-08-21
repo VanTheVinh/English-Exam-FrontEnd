@@ -1,3 +1,52 @@
 .dashboard {
-    color:darkblue;
-}
+    padding: 20px;
+    max-width: 1200px; // Adjust width as needed
+    margin: 0 auto; // Center the dashboard horizontally
+    
+    // border: 1px solid #ddd; // Light border around the dashboard
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #333; // Dark color for the heading
+    margin-bottom: 40px;
+    // margin-top: 20px;
+  }
+  
+  .classesList {
+    display: flex;
+    flex-wrap: wrap; // Allow items to wrap to the next line
+    justify-content: center; // Center items horizontally
+    gap: 20px; // Space between class cards
+  }
+  
+  .classCard {
+    text-align: center;
+    background-color: #ffffff; // White background for each class card
+    border: 1px solid #ddd; // Light border for each card
+    border-radius: 8px; // Rounded corners
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+    padding: 15px;
+    width: 40%; // Make each card take up 40% of the container's width
+    max-width: 300px; // Optional: limit the maximum width of the card
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; // Smooth transition for hover effects
+  
+    &:hover {
+      transform: translateY(-5px); // Lift effect on hover
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // More pronounced shadow on hover
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+      color: #333; // Dark color for class code
+      margin: 0 0 10px;
+    }
+  
+    p {
+      font-size: 1rem;
+      color: #666; // Lighter color for class name
+      margin: 0;
+    }
+  }
+  
