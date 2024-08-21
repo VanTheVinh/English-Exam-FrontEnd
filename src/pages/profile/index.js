@@ -1,15 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Profile.module.scss';
 import BuildIcon from '@mui/icons-material/Build'; // Tua vít
 import MailIcon from '@mui/icons-material/Mail';   // Lá thư
 
 const Profile = () => {
-    const [name, setName] = useState('Huỳnh Trần');
-    const [email, setEmail] = useState('J97@60toi.com');
-    const [studentId, setStudentId] = useState('J970BAO');
+    const [name, setName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [studentId, setStudentId] = useState(null);
     const [day, setDay] = useState('');
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
+
+    useEffect(() => {
+        const fetchStudentInfo = async () => {
+            try {
+                const response = await fetch('http://localhost:8000/user/${studentId}');
+                const data = await response.json();
+
+                // Cập nhật state với thông tin lấy được
+                setName(data.fullName);
+                setEmail(data.email);
+                setStudentId(data.studentId);
+
+                // if (data.birthday) {
+                //     const [year, month, day] = data.birthday.split('-');
+                //     setYear(year);
+                //     setMonth(month);
+                //     setDay(day);
+                // }                    // SOS: DỮ LIỆU BỊ THIẾU NGÀY THÁNG NĂM SINH, SƠ SUẤT CÓ THỂ BỔ SUNG THÊM
+            } catch (error) {
+                console.error('Error fetching student info:', error);
+            }
+        };
+
+        fetchStudentInfo();
+    }, [studentId]);
 
     const handleNameChange = (event) => {
         setName(event.target.value);
