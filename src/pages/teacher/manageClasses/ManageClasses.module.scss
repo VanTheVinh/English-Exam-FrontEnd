@@ -1,3 +1,71 @@
+@import url(https://fonts.googleapis.com);
+@import url(https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap);
+@import url(https://fonts.gstatic.com);
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
 .manage_classes {
-    color:darkblue;
+    background-color: #171821;
+    height: 2000px
+}
+.tables {
+    color:#87888C;
+    position: relative;
+    margin: auto; 
+    font-size: 30px;
+    width: 1000px;
+    top:100px;
+    text-align: center;
+    border:1px solid whitesmoke;
+    border-radius: 10px;
+}
+
+.tr{
+    position: relative;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid white;
+    width: fit-content;
+}
+.tr th{
+    width: fit-content;
+}
+.tr th button {
+    background-color: #87888C;
+    padding: 5px;
+    border-radius:5px ;
+    font-size: 15px;
+}
+.tr td{
+    position: relative;
+    font-size: 20px;
+}
+.tr input{
+    background-color: #87888C;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.line{
+    border-bottom: 1px solid #87888C;
+    position: relative;
+    width: 622%;
+    top: 5px;
+    margin-bottom:20px ;
+    opacity: 0.3;
+    margin-top: 10px;
+}
+.popup input{
+    background-color: #87888C;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.popup button{
+    background-color: #87888C;
+    padding: 5px;
+    border-radius:5px ;
+    font-size: 15px;
 }
