@@ -17,7 +17,7 @@ const TakeExamPage = () => {
   const [isCountdownVisible, setIsCountdownVisible] = useState(true);
   const navigate = useNavigate();
 
-  // Create a ref for each question
+  // Create a ref for each question 
   const questionRefs = useRef([]);
 
   useEffect(() => {
