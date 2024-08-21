@@ -35,18 +35,24 @@
     .questionsContent {
       width: 80%;
       // font-weight: bold;
+      h3 {
+        margin-top: 10px;
+      }
 
       .answerOption{
         text-align: center;
         width: 40%;
-        border: solid #ccc 1px;
+        border: solid #000 1px;
         margin: 10px 0px;
         padding: 10px;
         border-radius: 6px;
 
         &:hover {
-          // background-color: #f5f5f5;
-          border: solid #35509a 1px;
+          // font-weight: bold;
+          background-color: rgb(53, 80, 154, 0.1); 
+          // color: #fff;
+          // background-color: #35509a;
+          // border: solid #35509a 1px;
         }
       }
       .selected {
@@ -56,8 +62,9 @@
         padding: 10px;
         border-radius: 4px;
         
-        border: solid #35509a 1px;
-        color: #35509a;
+        // border: solid #35509a 1px;
+        background-color: #35509a;
+        color: #fff;
         font-weight: bold;
         // background-color:#35509a;
         // color: #fff;
@@ -69,7 +76,14 @@
     }
 
     .statusExam {
+      position: fixed;
+      padding: 20px 10px 20px 20px;
       width: 20%;
+      top: 8%;
+      right: 10%;
+      border-radius: 4px;
+      border: solid 1px #ccc;
+
       .countDown {
         position: relative;
         width: 80px; /* Adjust size as needed */
@@ -95,10 +109,10 @@
       
         button {
           font-weight: bold;
-          width: 30px;
-          height: 30px;
+          width: 34px;
+          height: 34px;
           // padding: 8px 14px;
-          margin: 0px 6px 4px 0px;
+          margin: 0px 4px 4px 0px;
           border: solid #35509a 1px;
           background-color: #fff;
           transition: background-color 0.3s;
