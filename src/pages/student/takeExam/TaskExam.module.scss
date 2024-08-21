@@ -1,3 +1,159 @@
-.task_exam {
-    color: #000;
+.takeExamPage {
+  margin: 0% 20%;
+
+  .backButton {
+    margin-left: 20px;
+    padding: 20px;
+    font-size: 22px;
+    border: none;
+    color: #171821;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  
+    svg {
+      transition: transform 0.1s ease;
+    }
+  
+    &:hover {
+      color: #3b3b3b;
+      svg {
+        transform: scale(1.1); /* Tăng kích thước icon khi hover */
+      }
+    }
+  }
+
+  h1 {
+    margin-top: -10px;
+    margin-bottom: 50px;
+  }
+
+  .takeExamContent {
+    display: flex;
+  
+    .questionsContent {
+      width: 80%;
+      // font-weight: bold;
+      h3 {
+        margin-top: 10px;
+      }
+
+      .answerOption{
+        text-align: center;
+        width: 40%;
+        border: solid #000 1px;
+        margin: 10px 0px;
+        padding: 10px;
+        border-radius: 6px;
+
+        &:hover {
+          // font-weight: bold;
+          background-color: rgb(53, 80, 154, 0.1); 
+          // color: #fff;
+          // background-color: #35509a;
+          // border: solid #35509a 1px;
+        }
+      }
+      .selected {
+        text-align: center;
+        width: 40%;
+        margin: 10px 0px;
+        padding: 10px;
+        border-radius: 4px;
+        
+        // border: solid #35509a 1px;
+        background-color: #35509a;
+        color: #fff;
+        font-weight: bold;
+        // background-color:#35509a;
+        // color: #fff;
+      }
+
+      input[type="radio"] {
+        display: none; /* Ẩn nút tròn radio */
+      }
+    }
+
+    .statusExam {
+      position: fixed;
+      padding: 20px 10px 20px 20px;
+      width: 20%;
+      top: 8%;
+      right: 10%;
+      border-radius: 4px;
+      border: solid 1px #ccc;
+
+      .countDown {
+        position: relative;
+        width: 80px; /* Adjust size as needed */
+        height: 80px; /* Adjust size as needed */
+        border-radius: 50%; /* Circular shape */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* Ensure progress bar doesn't overflow */
+        border: 2px solid #35509a; /* Black border */
+        background-color: white; /* White background */
+      
+        h2 {
+          margin: 0;
+          font-size: 24px;
+          color: #000; /* Black text */
+        }
+              
+      }
+  
+      .questionButtons {
+        margin-top: 20px;
+      
+        button {
+          font-weight: bold;
+          width: 34px;
+          height: 34px;
+          // padding: 8px 14px;
+          margin: 0px 4px 4px 0px;
+          border: solid #35509a 1px;
+          background-color: #fff;
+          transition: background-color 0.3s;
+      
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(53, 80, 154, 0.2); 
+          }
+      
+          &.answeredButton {
+            background-color:#35509a; // Green background for answered questions
+            color: #fff; // White text color for better readability
+            border: solid #000 1px;
+          }
+        }
+      }
+  
+      .submitButton {
+        font-size: 14px; /* Font size */
+        font-weight: bold;
+        margin-top: 30px;
+        padding: 10px 20px; /* Padding for size */
+        border-radius: 4px; /* Rounded corners */
+        background-color: #fff; /* Dark background color */
+        border: solid #000 1px;
+        color: #000; 
+        cursor: pointer; /* Pointer cursor on hover */
+        // transition: background-color 0.3s; /* Smooth background color transition */
+      
+        &:hover {
+          color: #35509a;
+          border: solid #35509a 1px;
+          // background-color: #35509a;
+        }
+      
+        &:active {
+          background-color: #fff; /* Even darker background color when clicked */
+        }
+      }
+    }
+  }
+
+  
 }

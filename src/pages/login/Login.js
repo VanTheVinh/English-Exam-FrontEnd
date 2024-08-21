@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+// Login/index.js
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '~/context/AppContext';
 import {
   TextField,
   Button,
@@ -9,12 +12,15 @@ import {
   Link,
 } from '@mui/material';
 import axios from 'axios';
+
 import styles from './Login.module.scss';
 import img from '../../images/image 1.png';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setStudentID } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,11 +31,19 @@ const Login = () => {
       });
 
       const { accessToken, refreshToken, user } = response.data.data;
+      const studentID = user._id; 
 
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
 
-      alert(`Welcome, ${user.fullName}!`);
+      // alert(`Welcome, ${user.fullName}!`);
+      setStudentID(studentID); 
+
+      if (user.role === 'student') {
+        navigate('/student');
+      } else if (user.role === 'teacher') {
+        navigate('/teacher/dashboard');
+      }
       
     } catch (error) {
       console.error('Failed to login:', error);
@@ -78,11 +92,11 @@ const Login = () => {
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                
               />
               <Link href="#" variant="body8">
                 Forgot password?
               </Link>
+              
               <Button
                 type="submit"
                 fullWidth
