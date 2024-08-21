@@ -69,7 +69,7 @@
     }
 
     .statusExam {
-
+      width: 20%;
       .countDown {
         position: relative;
         width: 80px; /* Adjust size as needed */
@@ -95,7 +95,9 @@
       
         button {
           font-weight: bold;
-          padding: 8px 14px;
+          width: 30px;
+          height: 30px;
+          // padding: 8px 14px;
           margin: 0px 6px 4px 0px;
           border: solid #35509a 1px;
           background-color: #fff;
