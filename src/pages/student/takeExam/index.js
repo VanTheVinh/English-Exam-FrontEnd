@@ -21,6 +21,7 @@ const TakeExamPage = () => {
   const questionRefs = useRef([]);
 
   useEffect(() => {
+    // localStorage.removeItem(`exam_${examID}_answers`);
     console.log('studentID: ', studentID);
     console.log('examID: ', examID);
   }, [studentID, examID]);
@@ -110,6 +111,7 @@ const TakeExamPage = () => {
           dateTaken: new Date().toISOString(),
           submitted: true,
         });
+        // Remove answer after submit successful
         localStorage.removeItem(`exam_${examID}_answers`);
       } catch (err) {
         console.log('Error submitting result');
