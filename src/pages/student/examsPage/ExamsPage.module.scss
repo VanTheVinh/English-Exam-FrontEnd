@@ -1,0 +1,76 @@
+.examsPage {
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+
+  .backButton {
+    margin-left: 20px;
+    padding: 20px;
+    font-size: 22px;
+    border: none;
+    color: #171821;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  
+    svg {
+      transition: transform 0.1s ease;
+    }
+  
+    &:hover {
+      color: #3b3b3b;
+      svg {
+        transform: scale(1.1); /* Tăng kích thước icon khi hover */
+      }
+    }
+  }
+
+  h1{
+    margin-top: -50px;
+    margin-bottom: 40px;
+  }
+}
+
+  
+  .examsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .examCard {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .examCard h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .examCard p {
+    font-size: 1.3rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  

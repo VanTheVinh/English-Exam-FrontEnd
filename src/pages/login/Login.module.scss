@@ -1,4 +1,75 @@
-
 .login {
-    color:cornflowerblue;
-}
+    color: #000000; /* Black text color */
+    height: auto;
+    width: 400px; /* Smaller login box */
+    background-color: #ffffff; /* White background */
+    margin: 0 auto; /* Center horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .image {
+    display: flex;
+    padding: 0 !important;
+    width: 100%;
+    margin-left: 0 !important; /* Remove extra margin */
+  }
+  
+  .img {
+    height: auto;
+    width: 100%; /* Scale image to fit within the smaller box */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .form {
+    padding: 20px;
+  
+    .MuiTextField-root {
+      margin-bottom: 16px;
+      width: 100%;
+      
+      .MuiInputBase-root {
+        font-size: 18px;
+        border-bottom: 2px solid #000000; /* Bottom border only */
+        border-radius: 0; /* Remove other borders */
+        box-shadow: none;
+        
+        &:before,
+        &:after {
+          border-bottom: 2px solid #8d8d8d; /* Black bottom border */
+        }
+      }
+  
+      .MuiInputLabel-root {
+        color: #000000; /* Black label color */
+      }
+    }
+
+      // .MuiButtonBase-root{
+      //   background-color: #171821;
+      // }
+    
+    .MuiButton-root {
+      margin-top: 24px;
+      background-color: #000000; /* Black button */
+      color: #ffffff; /* White text */
+  
+      &:hover {
+        background-color: #333333; /* Darker black on hover */
+      }
+    }
+  
+    .MuiLink-root {
+      color: #000000; /* Black link color */
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  

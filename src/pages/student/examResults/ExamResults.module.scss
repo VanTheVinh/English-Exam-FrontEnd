@@ -1,0 +1,38 @@
+.resultPage {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+  
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #171821; // màu chữ tiêu đề
+    }
+  
+    .resultsTable {
+      width: 100%;
+      border-collapse: collapse; // Gộp các đường viền của bảng lại
+  
+      th, td {
+        padding: 12px 15px; // Khoảng cách bên trong ô
+        text-align: left;
+        border: 1px solid #e0e0e0; // Đường viền giữa các ô
+      }
+  
+      th {
+        background-color: #f0f0f0; // Màu nền tiêu đề bảng
+        font-weight: bold;
+        color: #171821; // Màu chữ tiêu đề bảng
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f9f9f9; // Màu nền cho các dòng chẵn
+      }
+  
+      tr:hover {
+        background-color: #eaeaea; // Màu nền khi hover
+      }
+    }
+  }
+  
