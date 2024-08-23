@@ -32,8 +32,6 @@ const ManageQuestions = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    console.log(1);
-    
     fetch('http://localhost:8000/question')
       .then((response) => response.json())
       .then((data) => {

@@ -42,7 +42,7 @@ const Login = () => {
       if (user.role === 'student') {
         navigate('/student');
       } else if (user.role === 'teacher') {
-        navigate('/teacher/dashboard');
+        navigate('/teacher');
       }
       
     } catch (error) {

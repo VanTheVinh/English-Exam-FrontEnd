@@ -29,7 +29,7 @@ const AppRouter = () => {
         <Route path="/student/exams-page/exam-results" element={<ExamResults />} />
         <Route path="/student/exams-page/:classId" element={<StudentExamsPage />}/>
 
-        <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+        <Route path="/teacher" element={<TeacherDashboard />} />
         <Route path="/teacher/manage-classes" element={<ManageClasses />} />
         <Route path="/teacher/manage-exams" element={<ManageExams />} />
         <Route path="/teacher/manage-questions" element={<ManageQuestions />} />
