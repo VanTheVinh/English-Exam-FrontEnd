@@ -30,6 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.1",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@humanwhocodes/object-schema": "^2.0.3",
     "acorn-jsx": "^5.3.2",
